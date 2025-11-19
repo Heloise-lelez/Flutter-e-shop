@@ -1,0 +1,76 @@
+.dart_tool/
+.packages
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-plugins
+.flutter-plugins-dependencies
+.melos_tool
+.idea/
+.vscode/
+.gradle/
+pubspec.lock
+
+# ignore env files
+*.env
+
+# ---------------------------------------
+# FIREBASE (VERY IMPORTANT)
+# ---------------------------------------
+
+# Android Firebase config
+android/app/google-services.json
+
+# iOS & macOS Firebase config
+ios/Runner/GoogleService-Info.plist
+macos/Runner/GoogleService-Info.plist
+
+# Firebase crashlytics & build artifacts
+**/firebase_app_id_file.json
+**/firebase.json
+**/firebase_options.dart
+
+# This is SAFE to commit (keep it)
+# lib/firebase_options.dart
+
+# ---------------------------------------
+# PLATFORM-SPECIFIC FILES
+# ---------------------------------------
+
+# Android
+**/local.properties
+android/.gradle/
+android/.idea/
+
+# iOS
+ios/Flutter/Flutter.podspec
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+
+# macOS
+macos/Flutter/GeneratedPluginRegistrant.swift
+macos/Flutter/ephemeral/
+
+# Web
+web/.firebase/
+
+# Windows
+windows/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugin_registrant.h
+
+# Linux
+linux/flutter/generated_plugin_registrant.cc
+linux/flutter/generated_plugin_registrant.h
+
+# ---------------------------------------
+# MISC
+# ---------------------------------------
+*.log
+*.lock
+*.iml
+*.tmp
+*.DS_Store
+Thumbs.db
