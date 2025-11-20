@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "name": "Matcha Premium",
+    "description": "Organic ceremonial grade matcha, harvested in Uji, for a pure and refined experience.",
+    "price": 15.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/MatchaPremium_1.jpg?v=1705575352&_gl=1*196s7k4*_up*MQ..*_gs*MQ..&gclid=CjwKCAiA8vXIBhAtEiwAf3B-g0A1d7N_gb0f6NWoD7zHHzGQNfSOd8YAeNeFyrNptNJ9swerNV3TOBoC8REQAvD_BwE",
+    "category": "Matcha Tea"
+  },
+  {
+    "id": "2",
+    "name": "Collagen Matcha",
+    "description": "Revitalizing blend of matcha, collagen, hyaluronic acid, and magnesium.",
+    "price": 29.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/CucharaColageno_02_IMG_0665.jpg?v=1733927849",
+    "category": "Matcha Tea"
+  },
+  {
+    "id": "3",
+    "name": "Vanilla Matcha",
+    "description": "Organic matcha with a gentle touch of vanilla - perfect for lattes.",
+    "price": 19.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/8Y8A6220_web.jpg?v=1738312287",
+    "category": "Matcha Tea"
+  },
+  {
+    "id": "4",
+    "name": "Chocolate Matcha",
+    "description": "Matcha blended with cocoa for a tasty and energizing break.",
+    "price": 19.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/8Y8A5995_web.jpg?v=1738660857",
+    "category": "Matcha Tea"
+  },
+  {
+    "id": "5",
+    "name": "Golden Milk Matcha",
+    "description": "Golden blend of matcha, turmeric, and warm spices for a comforting latte.",
+    "price": 27.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/04_web.png?v=1754310914",
+    "category": "New Arrivals"
+  },
+  {
+    "id": "6",
+    "name": "Matcha Latte",
+    "description": "Ideal pack for beginners: mild matcha + instructions + measuring spoon.",
+    "price": 19.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/04_web_1.png?v=1751631711",
+    "category": "Matcha Tea"
+  },
+  {
+    "id": "7",
+    "name": "Matcha Rooibos",
+    "description": "Light evening formula with pure matcha and detoxifying plants.",
+    "price": 17.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/Rooibos.30g.jpg?v=1705566409",
+    "category": "Detox"
+  },
+  {
+    "id": "8",
+    "name": "Matcha Original",
+    "description": "Classic blend of matcha with ginger, lemongrass, and mint for a refreshing start to the day.",
+    "price": 17.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/MatchaOriginal_92bac45c-f463-4ed1-bbbe-abe8acf23efd.jpg?v=1705577251",
+    "category": "Matcha Tea"
+  },
+  {
+    "id": "9",
+    "name": "Spicy Chai",
+    "description": "Essential kit with matcha and spices to prepare delicious chai lattes.",
+    "price": 29.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/SpicyChai.jpg?v=1692891179",
+    "category": "Gift Sets"
+  },
+  {
+    "id": "10",
+    "name": "Expert Matcha Kit",
+    "description": "Expert kit with several varieties of matcha for advanced enthusiasts.",
+    "price": 49.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/SET_Experto_7034.jpg?v=1697786370",
+    "category": "Gift Sets"
+  },
+  {
+    "id": "11",
+    "name": "Ceremonial Uji Matcha",
+    "description": "Ceremonial grade matcha from Uji, Japan.",
+    "price": 21.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/MatchaReserve_1.jpg?v=1692873746",
+    "category": "Matcha Tea"
+  },
+  {
+    "id": "12",
+    "name": "Ritual Zen Matcha Kit",
+    "description": "Zen ritual kit with matcha and accessories for a calming tea experience.",
+    "price": 18.5,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/SET_Ritual_7033.jpg?v=1697786654",
+    "category": "Gift Sets"
+  },
+  {
+    "id": "13",
+    "name": "Chai Chocolate",
+    "description": "Blend of chai spices, and chocolate for a unique flavor.",
+    "price": 20.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/CacaoSpicyChai_1.jpg?v=1692883788",
+    "category": "Matcha Tea"
+  },
+  {
+    "id": "14",
+    "name": "Culinary Matcha",
+    "description": "High-quality matcha for cooking and baking.",
+    "price": 22.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/PA_MatchaCulinario.03.jpg?v=1692870685",
+    "category": "Matcha Tea"
+  },
+  {
+    "id": "15",
+    "name": "Strawberry Matcha",
+    "description": "Fruity blend of matcha and natural strawberry flavor.",
+    "price": 27.95,
+    "imageUrl": "https://matchaandco.fr/cdn/shop/files/02-strawberry.png?v=1759475334",
+    "category": "Matcha Tea"
+  }
+]
