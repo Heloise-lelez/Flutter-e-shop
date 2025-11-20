@@ -42,6 +42,8 @@ dependencies:
   cloud_firestore: ^6.0.3
   firebase_storage: ^13.0.4
   lottie: ^3.3.2
+  share_plus: ^12.0.1
+  fluttertoast: ^9.0.0
 
 dev_dependencies:
   flutter_test:

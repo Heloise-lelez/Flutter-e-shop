@@ -4,7 +4,8 @@ import 'package:tp_e_commerce/presentation/widgets/drawer_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../data/models/product.dart';
-import '../../data/services/api_service.dart'; // This will load your JSON
+import '../../data/services/api_service.dart';
+import 'package:lottie/lottie.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -59,47 +60,47 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        'Welcome to Matcha Shop',
+                        'Welcome to Matcha Shop ! ',
                         style: TextStyle(
-                          fontSize: 28,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'TitleFont'),
+                      ),
+                      const SizedBox(height: 24),
+                      // About Matcha Shop
+                      const Text(
+                        'About Matcha Shop',
+                        style: TextStyle(
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 12),
+                      const Text(
+                        'At Matcha Shop, we offer a curated selection of premium ceremonial grade matcha and unique blends crafted for true matcha lovers. '
+                        'Our mission is to bring the authentic taste and tradition of Japanese matcha into your everyday life, whether it’s a moment of quiet reflection or a shared experience with friends. '
+                        'Every leaf is carefully sourced from renowned tea gardens in Japan, ensuring the highest quality, vibrant color, and rich umami flavor. '
+                        'We take pride not only in the taste but also in the presentation, so each cup of matcha becomes a sensory ritual. '
+                        'Beyond matcha, our selection includes delightful teas and accessories to help you explore and enjoy the world of Japanese tea culture. '
+                        'Whether you are a connoisseur or new to matcha, our shop provides everything you need to experience this centuries-old tradition in a modern, accessible way.',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      Center(
+                        child: Lottie.asset(
+                          'assets/animation/load_cat.json',
+                          width: 200,
+                          height: 200,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
 
-                      // Horizontal list of products
+                      const SizedBox(height: 24),
                       SizedBox(
                         height: 250,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          itemCount:
-                              myProducts.length > 5 ? 6 : myProducts.length,
+                          itemCount: myProducts.length,
                           itemBuilder: (context, index) {
-                            if (index == 5) {
-                              return GestureDetector(
-                                onTap: () => context.go('/catalog'),
-                                child: Container(
-                                  width: 150,
-                                  margin: const EdgeInsets.only(right: 16),
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .secondaryContainer,
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
-                                  child: const Center(
-                                    child: Text(
-                                      'Shop More',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              );
-                            }
-
                             final product = myProducts[index];
                             return Container(
                               width: 150,
@@ -123,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                                     color: Theme.of(context)
                                         .colorScheme
                                         .onPrimaryContainer
-                                        .withOpacity(0.7),
+                                        .withAlpha(128),
                                     borderRadius: const BorderRadius.only(
                                       bottomLeft: Radius.circular(16),
                                       bottomRight: Radius.circular(16),
@@ -143,36 +144,13 @@ class _HomePageState extends State<HomePage> {
                           },
                         ),
                       ),
-
-                      const SizedBox(height: 24),
-
-                      // About Matcha Shop
-                      const Text(
-                        'About Matcha Shop',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 12),
-                      const Text(
-                        'At Matcha Shop, we offer premium ceremonial grade matcha and delightful blends. '
-                        'Our mission is to bring the authentic taste of Japanese matcha to your daily life, '
-                        'with carefully sourced ingredients and beautiful presentation.',
-                        style: TextStyle(fontSize: 16),
-                      ),
-
-                      const SizedBox(height: 24),
-
-/*                       // Little illustration
-                      Center(
-                        child: Image.network(
-                          'https://via.placeholder.com/150?text=Matcha+Illustration',
-                          width: 150,
-                        ),
-                      ), */
-
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 32),
+                      FilledButton(
+                          onPressed: () {
+                            context.go('/catalog');
+                          },
+                          child: const Text("Shop now !")),
+                      const SizedBox(height: 32),
                     ],
                   ),
                 ),
