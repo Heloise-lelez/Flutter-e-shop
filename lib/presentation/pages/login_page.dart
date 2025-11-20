@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:tp_e_commerce/presentation/pages/register_page.dart';
 import 'package:tp_e_commerce/presentation/widgets/drawer_widget.dart';
 
+import 'package:lottie/lottie.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -43,42 +45,56 @@ class _LoginPageState extends State<LoginPage> {
       drawer: const AppDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            TextField(
-              controller: _emailController,
-              decoration: const InputDecoration(labelText: 'Email'),
-            ),
-            const SizedBox(height: 12),
-            TextField(
-              controller: _passwordController,
-              decoration: const InputDecoration(labelText: 'Password'),
-              obscureText: true,
-            ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: _login,
-              child: const Text('Login'),
-            ),
-            const SizedBox(height: 12),
-            Text(
-              _errorMessage,
-              style: TextStyle(
-                  color: _errorMessage.contains('successful')
-                      ? Colors.green
-                      : Colors.red),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Navigate to Register page
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RegisterPage()),
-                );
-              },
-              child: const Text('Create an Account'),
-            ),
-          ],
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Lottie.asset(
+                'assets/animation/matcha_tea.json',
+                width: 200,
+                height: 200,
+                fit: BoxFit.contain,
+              ),
+              TextField(
+                controller: _emailController,
+                decoration: const InputDecoration(labelText: 'Email'),
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                controller: _passwordController,
+                decoration: const InputDecoration(labelText: 'Password'),
+                obscureText: true,
+              ),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: _login,
+                child: const Text('Login'),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                _errorMessage,
+                style: TextStyle(
+                    color: _errorMessage.contains('successful')
+                        ? Colors.green
+                        : Colors.red),
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  // Navigate to Register page
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RegisterPage()),
+                  );
+                },
+                child: const Text('Create an Account'),
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

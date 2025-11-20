@@ -6,25 +6,25 @@ import '../presentation/pages/login_page.dart' as login;
 import '../presentation/pages/register_page.dart' as register;
 import '../presentation/pages/home_page.dart' as home;
 import '../presentation/pages/catalog_page.dart' as catalog;
+import '../presentation/pages/product_detail_page.dart' as product_detail;
+import '../presentation/pages/colors_page.dart' as colors;
+import '../presentation/pages/cart_page.dart' as cart;
+
+import '../data/models/product.dart';
+import '../data/services/cart_service.dart';
 
 final router = GoRouter(
   initialLocation: '/',
   redirect: (BuildContext context, GoRouterState state) {
     final user = FirebaseAuth.instance.currentUser;
-    final bool loggedIn = user != null;
+    final loggedIn = user != null;
 
-    final isLoggingIn = state.matchedLocation == '/login';
-    final isRegistering = state.matchedLocation == '/register';
-    final isCatalog = state.matchedLocation == '/catalog';
+    final goingToLogin = state.matchedLocation == '/login';
+    final goingToRegister = state.matchedLocation == '/register';
+    final goingToCatalog = state.matchedLocation == '/catalog';
 
-    if (!loggedIn && isCatalog) {
-      return '/login';
-    }
-
-    if (loggedIn && (isLoggingIn || isRegistering)) {
-      return '/';
-    }
-
+    if (!loggedIn && goingToCatalog) return '/login';
+    if (loggedIn && (goingToLogin || goingToRegister)) return '/';
     return null;
   },
   routes: [
@@ -39,6 +39,14 @@ final router = GoRouter(
       builder: (context, state) => const catalog.CatalogPage(),
     ),
     GoRoute(
+      path: '/product/:id',
+      name: 'product',
+      builder: (context, state) {
+        final product = state.extra as Product;
+        return product_detail.ProductPage(product: product);
+      },
+    ),
+    GoRoute(
       path: '/login',
       name: 'login',
       builder: (context, state) => login.LoginPage(),
@@ -47,6 +55,17 @@ final router = GoRouter(
       path: '/register',
       name: 'register',
       builder: (context, state) => register.RegisterPage(),
+    ),
+    GoRoute(
+      path: '/colors',
+      name: 'colors',
+      builder: (context, state) => const colors.ColorSchemePage(),
+    ),
+    GoRoute(
+      path: '/cart',
+      name: 'cart',
+      builder: (context, state) =>
+          cart.CartPage(cartItems: CartService().items),
     ),
   ],
 );

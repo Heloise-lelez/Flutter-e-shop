@@ -22,6 +22,12 @@ class AppDrawer extends StatelessWidget {
                     context.go('/'),
                   }),
           ListTile(
+              title: const Text("Colors"),
+              onTap: () => {
+                    Navigator.pop(context),
+                    context.go('/colors'),
+                  }),
+          ListTile(
               title: const Text("Catalog"),
               onTap: () => {
                     Navigator.pop(context),
@@ -44,6 +50,14 @@ class AppDrawer extends StatelessWidget {
                       context.go('/register'),
                     }),
           ] else ...[
+            ListTile(
+              leading: const Icon(Icons.shopping_cart),
+              title: const Text("My Cart"),
+              onTap: () async {
+                Navigator.pop(context);
+                context.go('/cart');
+              },
+            ),
             const Divider(),
             ListTile(
               leading: const Icon(Icons.logout),
