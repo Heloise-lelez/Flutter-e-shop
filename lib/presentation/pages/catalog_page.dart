@@ -77,11 +77,20 @@ class _CatalogPageState extends State<CatalogPage> {
               ),
               child: TextField(
                 controller: _searchController,
+                onChanged: (value) {
+                  // You can implement filtering here
+                },
                 decoration: InputDecoration(
                   hintText: 'Search products...',
-                  prefixIcon: const Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search,
+                      color: Theme.of(context).colorScheme.primary),
+                  filled: true,
+                  fillColor: Theme.of(context).colorScheme.secondaryContainer,
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(24),
+                    borderSide: BorderSide.none, // removes the border
                   ),
                 ),
               ),

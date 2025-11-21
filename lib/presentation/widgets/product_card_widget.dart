@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tp_e_commerce/data/services/cart_service.dart';
 import '../../data/models/product.dart';
-import '../pages/product_detail_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class ProductCard extends StatelessWidget {
@@ -16,12 +15,7 @@ class ProductCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => ProductPage(product: product),
-          ),
-        );
+        context.push('/product/${product.id}', extra: product);
       },
       child: Card(
         color: Theme.of(context).colorScheme.secondaryContainer,

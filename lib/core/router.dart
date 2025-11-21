@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:tp_e_commerce/data/services/cart_service.dart';
+import 'package:tp_e_commerce/presentation/pages/checkout_page.dart';
 
 import '../presentation/pages/login_page.dart' as login;
 import '../presentation/pages/register_page.dart' as register;
@@ -11,7 +13,6 @@ import '../presentation/pages/colors_page.dart' as colors;
 import '../presentation/pages/cart_page.dart' as cart;
 
 import '../data/models/product.dart';
-import '../data/services/cart_service.dart';
 
 final router = GoRouter(
   initialLocation: '/',
@@ -21,9 +22,7 @@ final router = GoRouter(
 
     final goingToLogin = state.matchedLocation == '/login';
     final goingToRegister = state.matchedLocation == '/register';
-    final goingToCatalog = state.matchedLocation == '/catalog';
 
-    if (!loggedIn && goingToCatalog) return '/login';
     if (loggedIn && (goingToLogin || goingToRegister)) return '/';
     return null;
   },
@@ -64,8 +63,16 @@ final router = GoRouter(
     GoRoute(
       path: '/cart',
       name: 'cart',
-      builder: (context, state) =>
-          cart.CartPage(cartItems: CartService().items),
+      builder: (context, state) => const cart.CartPage(),
+    ),
+    GoRoute(
+      path: '/checkout',
+      builder: (context, state) {
+        // Get only the products from CartItems
+        final cartProducts =
+            CartService().cartItems.map((item) => item.product).toList();
+        return CheckoutPage(cart: cartProducts);
+      },
     ),
   ],
 );

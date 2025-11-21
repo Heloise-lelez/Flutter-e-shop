@@ -50,7 +50,7 @@ class AppDrawer extends StatelessWidget {
                   gravity: ToastGravity.BOTTOM,
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   textColor: Colors.white,
-                  fontSize: 16.0,
+                  fontSize: 20.0,
                 );
               },
             ),

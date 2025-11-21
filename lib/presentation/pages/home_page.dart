@@ -155,45 +155,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              StreamBuilder<User?>(
-                stream: _auth.authStateChanges(),
-                builder: (context, snapshot) {
-                  final user = snapshot.data;
-                  if (user != null) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 16),
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          await signOut();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Logged out')),
-                          );
-                        },
-                        child: const Text('Logout'),
-                      ),
-                    );
-                  } else {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () => context.go('/login'),
-                            child: const Text('Login'),
-                          ),
-                          OutlinedButton(
-                            onPressed: () => context.go('/register'),
-                            child: const Text('Register'),
-                          ),
-                        ],
-                      ),
-                    );
-                  }
-                },
-              ),
             ],
           );
         },

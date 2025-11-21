@@ -65,60 +65,68 @@ class _RegisterPageState extends State<RegisterPage> {
         backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
       ),
       drawer: const AppDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Lottie.asset(
-                  'assets/animation/matcha_tea.json',
-                  width: 200,
-                  height: 200,
-                  fit: BoxFit.contain,
-                ),
-                TextField(
-                  controller: _nameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Name *',
+      body: Center(
+        child: SingleChildScrollView(
+          child: Card(
+            elevation: 8, // soft shadow
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Container(
+              width: 380, // same width as login form
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Lottie.asset(
+                    'assets/animation/matcha_tea.json',
+                    width: 160,
+                    height: 160,
+                    fit: BoxFit.contain,
                   ),
-                ),
-                const SizedBox(height: 12),
-                TextField(
-                  controller: _emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'Email *',
+                  TextField(
+                    controller: _nameController,
+                    decoration: const InputDecoration(
+                      labelText: 'Name *',
+                    ),
                   ),
-                ),
-                const SizedBox(height: 12),
-                TextField(
-                  controller: _passwordController,
-                  decoration: const InputDecoration(
-                    labelText: 'Password *',
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: _emailController,
+                    decoration: const InputDecoration(
+                      labelText: 'Email *',
+                    ),
                   ),
-                  obscureText: true,
-                ),
-                const SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: _register,
-                  child: const Text('Register'),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  _errorMessage,
-                  style: TextStyle(
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: _passwordController,
+                    decoration: const InputDecoration(
+                      labelText: 'Password *',
+                    ),
+                    obscureText: true,
+                  ),
+                  const SizedBox(height: 24),
+                  ElevatedButton(
+                    onPressed: _register,
+                    child: const Text('Register'),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    _errorMessage,
+                    style: TextStyle(
                       color: _errorMessage.contains('successful')
                           ? Colors.green
-                          : Colors.red),
-                ),
-                OutlinedButton(
-                  onPressed: () {
-                    context.go('/login');
-                  },
-                  child: const Text("I already have an account"),
-                ),
-              ],
+                          : Colors.red,
+                    ),
+                  ),
+                  OutlinedButton(
+                    onPressed: () {
+                      context.go('/login');
+                    },
+                    child: const Text("I already have an account"),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -1,6 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:tp_e_commerce/presentation/widgets/drawer_widget.dart';
 import 'dart:io' show Platform;
 import '../../data/models/product.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -52,7 +52,7 @@ class ProductPage extends StatelessWidget {
                           ProductDetails(product: product, user: user),
                           const SizedBox(height: 16),
                           // Android-only share button
-                          if (Platform.isAndroid)
+                          if (!kIsWeb && Platform.isAndroid)
                             ElevatedButton.icon(
                               onPressed: shareProduct,
                               icon: const Icon(Icons.share),
@@ -78,7 +78,7 @@ class ProductPage extends StatelessWidget {
                     ProductDetails(product: product, user: user),
                     const SizedBox(height: 16),
                     // Android-only share button
-                    if (Platform.isAndroid)
+                    if (!kIsWeb && Platform.isAndroid)
                       ElevatedButton.icon(
                         onPressed: shareProduct,
                         icon: const Icon(Icons.share),
@@ -90,7 +90,7 @@ class ProductPage extends StatelessWidget {
       ),
     );
 
-    if (Platform.isIOS) {
+    if (!kIsWeb && Platform.isIOS) {
       return CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
           middle: Text(product.name),
@@ -103,7 +103,6 @@ class ProductPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(product.name),
         ),
-        drawer: const AppDrawer(),
         body: content,
       );
     }

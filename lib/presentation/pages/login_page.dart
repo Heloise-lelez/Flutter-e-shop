@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
-import 'package:tp_e_commerce/presentation/pages/register_page.dart';
 import 'package:tp_e_commerce/presentation/widgets/drawer_widget.dart';
 
 import 'package:lottie/lottie.dart';
@@ -43,57 +42,58 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
       ),
       drawer: const AppDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Lottie.asset(
-                'assets/animation/matcha_tea.json',
-                width: 200,
-                height: 200,
-                fit: BoxFit.contain,
-              ),
-              TextField(
-                controller: _emailController,
-                decoration: const InputDecoration(labelText: 'Email'),
-              ),
-              const SizedBox(height: 12),
-              TextField(
-                controller: _passwordController,
-                decoration: const InputDecoration(labelText: 'Password'),
-                obscureText: true,
-              ),
-              const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: _login,
-                child: const Text('Login'),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                _errorMessage,
-                style: TextStyle(
-                    color: _errorMessage.contains('successful')
-                        ? Colors.green
-                        : Colors.red),
-              ),
-              OutlinedButton(
-                onPressed: () {
-                  // Navigate to Register page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RegisterPage()),
-                  );
-                },
-                child: const Text('Create an Account'),
-                style: OutlinedButton.styleFrom(
-                  side: BorderSide(
-                    color: Theme.of(context).colorScheme.primary,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Card(
+            elevation: 8, // soft shadow
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Container(
+              width: 380, // reduce the width of the card
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Lottie.asset(
+                    'assets/animation/matcha_tea.json',
+                    width: 160,
+                    height: 160,
+                    fit: BoxFit.contain,
                   ),
-                ),
+                  TextField(
+                    controller: _emailController,
+                    decoration: const InputDecoration(labelText: 'Email'),
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: _passwordController,
+                    decoration: const InputDecoration(labelText: 'Password'),
+                    obscureText: true,
+                  ),
+                  const SizedBox(height: 24),
+                  ElevatedButton(
+                    onPressed: _login,
+                    child: const Text('Login'),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    _errorMessage,
+                    style: TextStyle(
+                      color: _errorMessage.contains('successful')
+                          ? Colors.green
+                          : Colors.red,
+                    ),
+                  ),
+                  OutlinedButton(
+                    onPressed: () {
+                      context.go('/register');
+                    },
+                    child: const Text('Create an Account'),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),

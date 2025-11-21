@@ -25,11 +25,8 @@ class ColorSchemeViewer extends StatelessWidget {
       "onError": scheme.onError,
       "errorContainer": scheme.errorContainer,
       "onErrorContainer": scheme.onErrorContainer,
-      "background": scheme.background,
-      "onBackground": scheme.onBackground,
       "surface": scheme.surface,
       "onSurface": scheme.onSurface,
-      "surfaceVariant": scheme.surfaceVariant,
       "onSurfaceVariant": scheme.onSurfaceVariant,
       "outline": scheme.outline,
       "outlineVariant": scheme.outlineVariant,
@@ -52,10 +49,10 @@ class ColorSchemeViewer extends StatelessWidget {
         child: GridView.builder(
           itemCount: entries.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 8, // 2 items per row (you can increase for web)
+            crossAxisCount: 8,
             crossAxisSpacing: 12,
             mainAxisSpacing: 12,
-            childAspectRatio: 1, // adjust if needed
+            childAspectRatio: 1,
           ),
           itemBuilder: (context, index) {
             final key = entries.keys.elementAt(index);
