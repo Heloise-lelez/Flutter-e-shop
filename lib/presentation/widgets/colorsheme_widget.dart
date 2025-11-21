@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tp_e_commerce/presentation/widgets/drawer_widget.dart';
 
+// Juste to visualize the current ColorScheme of the app's theme
 class ColorSchemeViewer extends StatelessWidget {
   const ColorSchemeViewer({super.key});
 
